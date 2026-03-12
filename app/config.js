@@ -37,7 +37,7 @@ window.mumbleWebConfig = {
     'matrix': false, // enable Matrix Widget support (mostly auto-detected; implies 'joinDialog')
     'avatarurl': '', // download and set the user's Mumble avatar to the image at this URL
     // General
-    'theme': 'MetroMumbleLight',
+    'theme': 'DiscordDark',
     'startMute': false,
     'startDeaf': false
   }

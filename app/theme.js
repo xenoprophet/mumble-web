@@ -5,8 +5,10 @@ var theme = queryParams.theme || window.localStorage.getItem('mumble.theme')
 var themes = {
   'MetroMumbleLight': 'MetroMumbleLight',
   'MetroMumbleDark': 'MetroMumbleDark',
+  'DiscordDark': 'DiscordDark',
   'light': 'MetroMumbleLight',
-  'dark': 'MetroMumbleDark'
+  'dark': 'MetroMumbleDark',
+  'discord': 'DiscordDark'
 }
 theme = themes[theme] || window.mumbleWebConfig.defaults.theme
 window.theme = theme
@@ -19,6 +21,10 @@ var [loadingTheme, mainTheme] = {
   'MetroMumbleDark': [
     require('../themes/MetroMumbleDark/loading.scss'),
     require('../themes/MetroMumbleDark/main.scss')
+  ],
+  'DiscordDark': [
+    require('../themes/DiscordDark/loading.scss'),
+    require('../themes/DiscordDark/main.scss')
   ]
 }[theme]
 
