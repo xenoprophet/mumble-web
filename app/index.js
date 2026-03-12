@@ -354,6 +354,7 @@ class GlobalBindings {
     this.commentDialog = new CommentDialog()
     this.settingsDialog = ko.observable()
     this.minimalView = ko.observable(false)
+    this.allUsers = ko.observableArray()
     this.log = ko.observableArray()
     this.remoteHost = ko.observable()
     this.remotePort = ko.observable()
@@ -688,6 +689,8 @@ class GlobalBindings {
         ui.channel().users.sort(compareUsers)
       }
 
+      this.allUsers.push(ui)
+
       user.on('update', (actor, properties) => {
         Object.entries(simpleProperties).forEach(key => {
           if (properties[key[0]] !== undefined) {
@@ -712,6 +715,7 @@ class GlobalBindings {
         if (ui.channel()) {
           ui.channel().users.remove(ui)
         }
+        this.allUsers.remove(ui)
       }).on('voice', stream => {
         console.log(`User ${user.username} started takling`)
         let userNode
@@ -823,6 +827,7 @@ class GlobalBindings {
         this.client.disconnect()
       }
       this.client = null
+      this.allUsers([])
       this.selected(null).root(null).thisUser(null)
     }
 
